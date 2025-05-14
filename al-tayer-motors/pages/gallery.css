@@ -1,0 +1,221 @@
+/* Removes default spacing and sets consistent box-sizing. 
+Sets a full-height black background. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GENERAL RESET & BASE */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: 'Teko', sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Creates a fixed, semi-transparent black 
+navbar with spacing and vertical centering. */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  height: 70px;
+}
+
+/* Large, bold white text. */
+.navbar .logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Horizontal navigation layout 
+with spacing between items. */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+/* Clean, animated hover effects. */
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Color-gradient lines animate on top and bottom. Link floats up slightly. */
+.nav-links a::before,
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, red, blue);
+  transition: width 0.4s ease;
+}
+
+.nav-links a::before {
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.nav-links a::after {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-links a:hover {
+  transform: translateY(-4px);
+}
+
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+ /* Logo image aligns with text and keeps a consistent size. */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+  margin-right: 10px;
+}
+
+/* MAIN CONTAINER */
+main {
+  display: flex;
+  width: 100%;
+  margin-top: 70px; /* to account for fixed nav */
+  height: calc(100vh - 70px);
+}
+
+/* FILTER SIDEBAR */
+.filter-bar {
+  width: 200px;
+  padding: 20px;
+  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset -2px 0 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 70px;
+  height: 100%;
+  z-index: 10;
+}
+
+.filter-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.3s ease, background 0.4s ease;
+}
+
+/* HOVER + ACTIVE STATE with GRADIENT */
+.filter-btn:hover,
+.filter-btn.active {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff3c3c, #3c8eff);
+  box-shadow: 0 0 10px rgba(255, 60, 60, 0.4), 0 0 20px rgba(60, 142, 255, 0.3);
+}
+
+
+/* GALLERY AREA */
+.gallery-container {
+  flex: 1;
+  padding: 40px 30px;
+  column-count: 3; /* Adjust based on screen size if needed */
+  column-gap: 25px;
+  overflow-y: auto;
+  height: 100%;
+  max-width: 1600px; /* optional to control large screens */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Each gallery item now behaves like a block in a column layout */
+.gallery-item {
+  break-inside: avoid;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  background-color: #111; /* optional subtle bg */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 460px; /* Fixed height */
+  object-fit: cover;
+  display: block;
+  transition: transform 3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* FADE-IN EFFECT */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FOOTER */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  padding-left: 200px;
+  background-color: black;
+  border-top: 1px solid rgb(253, 249, 249);
+  font-size: 14px;
+}
