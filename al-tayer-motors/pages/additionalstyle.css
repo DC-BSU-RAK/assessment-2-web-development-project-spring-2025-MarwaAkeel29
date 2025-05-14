@@ -415,7 +415,7 @@ with spacing between items. */
   position: relative;
   display: flex;
   gap: 50px;
-  background-color: #0b0b0b;
+  background-color: black;
   padding: 35px 50px;
   margin: 100px 80px;
   border-radius: 20px;
@@ -431,7 +431,7 @@ with spacing between items. */
 
 /* On hover, the box lifts up slightly and casts a deeper shadow for interactivity. */
 .brand-box:hover {
-  transform: translateY(-4px);
+  transform: translateY(-9px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
 }
 
@@ -524,7 +524,7 @@ with slight hover scaling and lighting tweaks. */
 /* Spaced navigation buttons for video switching. */
 .nav-buttons {
   margin-top: 20px;
-  margin-left: 120px;
+  margin-left: 130px;
   display: flex;
   gap: 30px;
 }
