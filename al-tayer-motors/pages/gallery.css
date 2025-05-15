@@ -124,7 +124,7 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
-  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  border-right: 1px solid rgba(236, 232, 232, 0.07);
   box-shadow: inset -2px 0 8px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 70px;
@@ -134,15 +134,16 @@ main {
 
 .filter-btn {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(7, 2, 2, 0.05);
   border: none;
   color: white;
   padding: 10px 15px;
+  padding-left: 50px;
   font-size: 16px;
-  border-radius: 6px;
+  border-radius: 40px 0;
   cursor: pointer;
   text-align: left;
-  transition: transform 0.3s ease, background 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
 /* HOVER + ACTIVE STATE with GRADIENT */
@@ -150,7 +151,7 @@ main {
 .filter-btn.active {
   transform: scale(1.05);
   background: linear-gradient(135deg, #ff3c3c, #3c8eff);
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.4), 0 0 20px rgba(60, 142, 255, 0.3);
+  box-shadow: 0 0 10px rgba(222, 188, 188, 0.4), 0 0 20px rgba(60, 142, 255, 0.3);
 }
 
 
@@ -182,7 +183,7 @@ main {
   height: 460px; /* Fixed height */
   object-fit: cover;
   display: block;
-  transition: transform 3s ease;
+  transition: transform 1s ease;
 }
 
 .gallery-item:hover {
@@ -218,4 +219,16 @@ footer {
   background-color: black;
   border-top: 1px solid rgb(253, 249, 249);
   font-size: 14px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 2.5rem;
+  margin-left: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #e60000;
 }
