@@ -14,26 +14,6 @@ body {
   color: white;
 }
 
-/* --- Fix Heading Position --- */
-h1 {
-  text-align: center;
-  margin-top: 120px; /* pushed down below navbar */
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-  color: #ffffff;
-  position: relative;
-}
-
-/* --- Add Red-Blue Gradient Border Below the Heading --- */
-h1::after {
-  content: '';
-  display: block;
-  width: 100px;
-  height: 4px;
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
 /* Creates a fixed, semi-transparent black 
 navbar with spacing and vertical centering. */
 .navbar {
@@ -121,10 +101,10 @@ navbar with spacing and vertical centering. */
   justify-content: center;
   align-items: center; /* vertically centers */
   gap: 2rem;
+  margin-top: 60px; /* Space for fixed navbar */
   padding: 4rem 2rem 6rem; /* Extra bottom padding before footer */
   min-height: 60vh; /* Ensures center feel on tall screens */
 }
-
 
 .card {
   width: 300px;
@@ -155,20 +135,11 @@ navbar with spacing and vertical centering. */
   backface-visibility: hidden;
   border-radius: 20px;
   background: linear-gradient(to bottom, #111, #000);
-  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.15), inset 0 0 20px rgba(0, 0, 255, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  padding: 1rem;
   box-sizing: border-box;
-}
-
-.card-front {
-  border-left: 2px solid;
-  border-right: 2px solid;
-  border-image: linear-gradient(to bottom, rgb(247, 150, 150), rgb(169, 169, 233)) 1;
 }
 
 .card-front img {
@@ -179,9 +150,31 @@ navbar with spacing and vertical centering. */
 
 .card-back {
   transform: rotateY(180deg);
-  border-left: 2px solid;
-  border-right: 2px solid;
-  border-image: linear-gradient(to top, rgb(237, 171, 171), rgb(179, 179, 228)) 1;
+  padding: 1rem;
+  border: 1px solid #ffffff;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.fade-up.delay-1 {
+  animation-delay: 0.3s;
+}
+.fade-up.delay-2 {
+  animation-delay: 0.6s;
+}
+.fade-up.delay-3 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 form {
@@ -249,6 +242,19 @@ footer {
 .card select:focus {
   pointer-events: all;
 }
+  
+.overlay-heading {
+  position: absolute;
+  top: 385px;
+  color: #fff;
+  background: rgba(20, 20, 20, 0.55);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 
 @media (max-width: 1000px) {
   .contact-cards {
