@@ -1,0 +1,270 @@
+/* Removes default spacing and sets consistent box-sizing. 
+Sets a full-height black background. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Make background fully black with gradient fade --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #000000, #0f0f0f, #1a1a1a);
+  color: white;
+}
+
+/* --- Fix Heading Position --- */
+h1 {
+  text-align: center;
+  margin-top: 120px; /* pushed down below navbar */
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #ffffff;
+  position: relative;
+}
+
+/* --- Add Red-Blue Gradient Border Below the Heading --- */
+h1::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Creates a fixed, semi-transparent black 
+navbar with spacing and vertical centering. */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  height: 70px;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a::before,
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, red, blue);
+  transition: width 0.4s ease;
+}
+
+.nav-links a::before {
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.nav-links a::after {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-links a:hover {
+  transform: translateY(-4px);
+}
+
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* vertically centers */
+  gap: 2rem;
+  padding: 4rem 2rem 6rem; /* Extra bottom padding before footer */
+  min-height: 60vh; /* Ensures center feel on tall screens */
+}
+
+
+.card {
+  width: 300px;
+  height: 420px;
+  perspective: 1000px;
+  border-radius: 25px; /* more obvious roundness */
+  background: linear-gradient(to bottom, #222, #111);
+  overflow: hidden;
+}
+
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #111, #000);
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.15), inset 0 0 20px rgba(0, 0, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.card-front {
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-image: linear-gradient(to bottom, rgb(247, 150, 150), rgb(169, 169, 233)) 1;
+}
+
+.card-front img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-image: linear-gradient(to top, rgb(237, 171, 171), rgb(179, 179, 228)) 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+input, select, textarea, button {
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+input, select, textarea {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+button {
+  background: linear-gradient(90deg, rgb(0, 0, 0), rgb(249, 243, 243), rgb(0, 0, 0));
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #080707;
+  color: white;
+  transform: scale(1.05);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111;
+  color: #ccc;
+  border-top: 2px solid #444;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 2.5rem;
+  margin-left: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #e60000;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card input:focus,
+.card textarea:focus,
+.card select:focus {
+  pointer-events: all;
+}
+
+@media (max-width: 1000px) {
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .social-icons a {
+    margin: 0 0.5rem;
+  }
+}
