@@ -13,8 +13,6 @@ body {
   background-color: #0a0a0a;
   color: white;
   font-family: 'Teko', sans-serif;
-  display: flex;
-  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -110,13 +108,12 @@ main {
   display: flex;
   width: 100%;
   margin-top: 70px; /* to account for fixed nav */
-  height: calc(100vh - 70px);
 }
 
 /* FILTER SIDEBAR */
 .filter-bar {
-  width: 200px;
-  padding: 20px;
+  width: 400px;
+  padding: 30px;
   margin-top: 50px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
@@ -137,7 +134,7 @@ main {
   background: rgba(7, 2, 2, 0.05);
   border: none;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 10px;
   padding-left: 50px;
   font-size: 16px;
   border-radius: 40px 0;
@@ -157,26 +154,30 @@ main {
 
 /* GALLERY AREA */
 .gallery-container {
-  flex: 1;
+  display: flex;               /* Use flex to lay items in a row */
+  flex-wrap: nowrap;           /* Prevent wrapping to a new line */
+  overflow-x: auto;            /* Enable horizontal scroll */
+  overflow-y: hidden; 
+  margin-left: 10px;         /* Hide vertical overflow */
+  scroll-behavior: smooth;     /* Smooth scrolling */
   padding: 40px 30px;
-  column-count: 3; /* Adjust based on screen size if needed */
-  column-gap: 25px;
-  overflow-y: auto;
-  height: 100%;
-  max-width: 1600px; /* optional to control large screens */
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+  gap: 25px;
+  height: auto;                /* Optional: allow content to define height */
 }
+
 
 /* Each gallery item now behaves like a block in a column layout */
 .gallery-item {
-  break-inside: avoid;
+  flex: 0 0 auto; /* Prevent stretching; stay fixed width */
+  width: 290px;
+  height: 460px;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s ease;
   overflow: hidden;
-  background-color: #111; /* optional subtle bg */
+  background-color: #111;
 }
+
 
 .gallery-item img {
   width: 100%;
@@ -192,6 +193,17 @@ main {
 
 .gallery-item:hover img {
   transform: scale(1.1);
+}
+
+.gallery-container::-webkit-scrollbar {
+  height: 8px;
+}
+.gallery-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+.gallery-container::-webkit-scrollbar-thumb:hover {
+  background: #888;
 }
 
 /* FADE-IN EFFECT */
@@ -210,12 +222,9 @@ main {
 
 /* FOOTER */
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 12px;
-  padding-left: 200px;
+  padding: 20px 12px;
   background-color: black;
   border-top: 1px solid rgb(253, 249, 249);
   font-size: 14px;
