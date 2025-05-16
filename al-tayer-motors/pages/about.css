@@ -25,7 +25,6 @@ navbar with spacing and vertical centering. */
   width: 100%;
   top: 0; /* Anchored to the top */
   z-index: 100; /* On top of other elements */
-  height: 70px;
 }
 
 /* Large, bold white text. */
@@ -99,11 +98,6 @@ with spacing between items. */
   width: auto; /* Keeps original proportions */
   margin-right: 10px; /* Space between image and text */
 }
-
-main {
-  padding-top: 120px; /* Pushes content below the navbar */
-}
-
 
 /* ABOUT SECTION */ 
 /* Creates a vertically spaced section with a dark gradient background. */
