@@ -3,26 +3,28 @@ Sets a full-height black background. */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensures padding/border do not expand the box */
 }
 
 body, html {
-  height: 100%;
-  background: black;
+  height: 100%; /* Allows full-screen background */
+  background: black; /* Sets a dark base for the entire site */
 }
+
 
 /* Creates a fixed, semi-transparent black 
 navbar with spacing and vertical centering. */
 .navbar {
-  display: flex;
+  display: flex; /* Horizontal layout for logo and links */
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  padding: 0.5rem 2rem; /* Spacing inside the navbar */
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
   width: 100%;
-  top: 0;
-  z-index: 100;
+  top: 0; /* Anchored to the top */
+  z-index: 100; /* On top of other elements */
   height: 70px;
 }
 
@@ -59,17 +61,17 @@ with spacing between items. */
 .nav-links a::before,
 .nav-links a::after {
   content: '';
-  position: absolute;
-  height: 2px;
-  width: 0%;
-  background: linear-gradient(90deg, red, blue);
-  transition: width 0.4s ease;
+  position: absolute; /* Positions at top and bottom */
+  height: 2px; /* Thin animated bar */
+  width: 0%; /* Starts invisible */
+  background: linear-gradient(90deg, red, blue); /* Eye-catching color blend */
+  transition: width 0.4s ease; /* Animates bar expansion */
 }
 
 .nav-links a::before {
   top: 0;
   left: 100%;
-  transform: translateX(-100%);
+  transform: translateX(-100%); /* Aligns from right edge */
 }
 
 .nav-links a::after {
@@ -78,25 +80,30 @@ with spacing between items. */
 }
 
 .nav-links a:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px); /* Floats on hover */
 }
 
 .nav-links a:hover::before,
 .nav-links a:hover::after {
-  width: 100%;
+  width: 100%; /* Extends bar fully on hover */
 }
 
  /* Logo image aligns with text and keeps a consistent size. */
 .logo {
-  display: flex;
-  align-items: center;
+  display: flex; /* Allows image and text in one line */
+  align-items: center; /* Vertically centers the image */
 }
 
 .logo img {
-  height: 70px;
-  width: auto;
-  margin-right: 10px;
+  height: 60px; /* Matches navbar height */
+  width: auto; /* Keeps original proportions */
+  margin-right: 10px; /* Space between image and text */
 }
+
+main {
+  margin-top: 70px; /* Pushes content below the navbar */
+}
+
 
 /* ABOUT SECTION */ 
 /* Creates a vertically spaced section with a dark gradient background. */
@@ -116,19 +123,20 @@ with spacing between items. */
 
 /* Applies a shiny animated gradient to section titles. */
 .about-title, .count, .logo-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  font-family: 'Teko', sans-serif;
+  font-size: 2.5rem; /* Large attention-grabbing size */
+  font-weight: bold; /* Heavier emphasis */
+  font-family: 'Teko', sans-serif; /* Modern square font */
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 10px;
   background: linear-gradient(90deg, #4da6ff, #ff0000, #4da6ff);
   background-size: 200% auto;
   color: transparent;
-  background-clip: text; /*Fills only the text with the gradient. */
+  background-clip: text;
   -webkit-background-clip: text;
-  animation: textShine 4s linear infinite; /*Animates the gradient horizontally forever. */
+  animation: textShine 4s linear infinite; /* Moving gradient animation */
 }
+
 
 /* Adds a soft glow effect to the text. */
 @keyframes textShine {
@@ -157,7 +165,7 @@ with spacing between items. */
 
 .fade-section.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0);  /* Animates into place */
 }
 
  /* Holds counters or statistics with centered layout and spacing. */
@@ -209,7 +217,7 @@ with spacing between items. */
 }
       
 .stat-box:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Lifts slightly on hover */
 }
       
 .stat-number {
@@ -225,10 +233,10 @@ with spacing between items. */
 }
 
 .logo-title {
-  margin-bottom: 40px;
+  margin-bottom: 40px; /* Separates from logos */
 }
- 
-/* Each row contains an image and text with flexible, neat spacing. */
+
+/* .logo-row (div) — Flex container for logo and text blocks with spacing and background styling */
 .logo-row {
   display: flex;
   align-items: center;
@@ -243,6 +251,7 @@ with spacing between items. */
   flex-wrap: nowrap;
 }
 
+/* .logo-row::before — Decorative border effect behind the logo row */
 .logo-row::before { 
   content: '';
   position: absolute;
@@ -254,64 +263,72 @@ with spacing between items. */
   border-radius: 14px;
 }
 
+/* .brand-logo (img) — Standard brand logo with smooth hover animation */
 .brand-logo {
- margin-left: 10px;
- width: 250px;
- height: auto;
- transition: transform 0.3s ease, filter 0.3s ease;
+  margin-left: 10px;
+  width: 250px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* .brand-logo1 (img) — Alternate logo with smaller size and same animation */
 .brand-logo1 {
   width: 150px;
   margin-left: 15px;
   height: auto;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-    
+
+/* .brand-logo:hover, .brand-logo1:hover (img) — Zoom and brighten effect on hover */
 .brand-logo:hover,
 .brand-logo1:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
 }
-    
-    
+
+/* .logo-text (div) — Text block next to the logo with clean typography */
 .logo-text {
   max-width: 300px;
   color: #ccc;
   font-family: 'Playfair Display', serif;
 }
-    
+
+/* .logo-text h3 — Heading within the logo text block */
 .logo-text h3 {
   font-size: 1.5rem;
   color: white;
   margin-bottom: 0.5rem;
 }
-    
+
+/* .logo-text p — Paragraph under the logo heading */
 .logo-text p {
   font-size: 0.95rem;
 }
-    
+   
 /* Animations */
+/* .logo-row.from-left (div) — Hidden row slides in from the left with fade */
 .logo-row.from-left {
   opacity: 0;
   transform: translateX(-80px);
   transition: opacity 1.5s ease-out, transform 1.5s ease-out;
   justify-content: flex-start;
 }
-    
+
+/* .logo-row.from-right (div) — Hidden row slides in from the right with fade */
 .logo-row.from-right {
   opacity: 0;
   transform: translateX(80px);
   transition: opacity 1.5s ease-out, transform 1.5s ease-out;
   justify-content: flex-end;
 }
-    
+
+/* .logo-row.visible (div) — Final state: fully visible and centered */
 .logo-row.visible {
   opacity: 1;
   transform: translateX(0);
 }
-    
-  
+
+/* .logo-row (div) — Base styling with subtle border and fade-on-hover setup */
 .logo-row {
   position: relative;
   border: 2px solid transparent;
@@ -322,7 +339,7 @@ with spacing between items. */
   transition: border-color 0.3s ease;
 }
 
-/* Shows a glowing border animation on hover by expanding from each side. */
+/* .logo-row::before / ::after — Top and bottom borders that expand on hover */
 .logo-row::before,
 .logo-row::after {
   content: '';
@@ -332,21 +349,25 @@ with spacing between items. */
   background: linear-gradient(to right, #ff0000, #4da6ff);
   transition: width 0.4s ease;
 }
-    
+
+/* .logo-row::before — Top glow line starts from left */
 .logo-row::before {
   top: 0;
   left: 0;
 }
-    
+
+/* .logo-row::after — Bottom glow line starts from right */
 .logo-row::after {
   bottom: 0;
   right: 0;
 }
-    
+
+/* .logo-row:hover::before / ::after — Expand glowing lines to full width on hover */
 .logo-row:hover::before,
 .logo-row:hover::after {
   width: 100%;
 }
+
  
 /* Different dimensions/styles for each brand’s vehicle image. */
 .car-image {
@@ -406,7 +427,7 @@ with spacing between items. */
 .car-image3:hover,
 .car-image4:hover,
 .car-image5:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Zoom effect */
 }
 
 /* Footer base styles: background, text color, padding, and font */
@@ -485,8 +506,37 @@ footer {
   font-size: 0.9rem;
 }
 
-
+/* Mobile navbar becomes vertical, logo above links */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0;
+  }
+
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -497,3 +547,7 @@ footer {
     justify-content: center;
   }
 }
+
+
+
+
