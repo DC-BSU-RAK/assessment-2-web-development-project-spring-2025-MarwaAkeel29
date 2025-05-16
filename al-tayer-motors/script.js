@@ -1,4 +1,4 @@
-// Array of car brand names to display in rotation
+// Array of car brand names to display
 const brands = ["Ford", "Ferrari", "Land Rover", "Maserati", "Jaguar", "Lincoln"];
 
 let index = 0; // Keeps track of which brand to show next
