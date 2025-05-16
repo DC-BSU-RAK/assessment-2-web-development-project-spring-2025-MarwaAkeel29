@@ -113,7 +113,7 @@ main {
 /* FILTER SIDEBAR */
 .filter-bar {
   width: 400px;
-  padding: 30px;
+  padding: 50px;
   margin-top: 50px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
@@ -135,7 +135,7 @@ main {
   border: none;
   color: white;
   padding: 10px 10px;
-  padding-left: 50px;
+  padding-left: 20px;
   font-size: 16px;
   border-radius: 40px 0;
   cursor: pointer;
@@ -158,7 +158,7 @@ main {
   flex-wrap: nowrap;           /* Prevent wrapping to a new line */
   overflow-x: auto;            /* Enable horizontal scroll */
   overflow-y: hidden; 
-  margin-left: 10px;         /* Hide vertical overflow */
+  margin-left: 5px;         /* Hide vertical overflow */
   scroll-behavior: smooth;     /* Smooth scrolling */
   padding: 40px 30px;
   gap: 25px;
