@@ -20,10 +20,10 @@ navbar with spacing and vertical centering. */
   padding: 0.5rem 2rem;
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
+  height: 70px;
   width: 100%;
   top: 0;
   z-index: 100;
-  height: 70px;
 }
 
 /* Large, bold white text. */
@@ -326,6 +326,36 @@ footer {
 
 
 @media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0;
+  }
+
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -345,6 +375,7 @@ footer {
     align-items: center;
     padding: 30px;
     gap: 30px;
+    margin-top: 90px; 
   }
 
   .brand-left, .brand-right {
@@ -353,8 +384,8 @@ footer {
   }
 
   .brand-video {
-    width: 90%;
-    height: auto;
+    width: 100%;
+    height: 300px;
   }
 
   .nav-buttons {
