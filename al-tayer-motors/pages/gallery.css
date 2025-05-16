@@ -46,6 +46,7 @@ with spacing between items. */
   gap: 2rem;
 }
 
+/* Each list item is relatively positioned to enable pseudo-element effects. */
 .nav-links li {
   position: relative;
 }
@@ -114,55 +115,56 @@ main {
 .filter-bar {
   width: 400px;
   padding: 50px;
-  margin-top: 50px;
+  margin-top: 10px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
+  display: flex; /* Use flex to lay items in a column */ 
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 15px; 
   border-right: 1px solid rgba(236, 232, 232, 0.07);
   box-shadow: inset -2px 0 8px rgba(0, 0, 0, 0.3);
-  position: sticky;
+  position: sticky; /* Keep it fixed on scroll */
   top: 70px;
   height: 100%;
-  z-index: 10;
+  z-index: 10; /* Keep it above other content */
 }
 
+/* FILTER TITLE */
 .filter-btn {
-  width: 100%;
-  background: rgba(7, 2, 2, 0.05);
+  width: 100%; /* Full width */
+  background: rgba(7, 2, 2, 0.05); /* Light background */
   border: none;
-  color: white;
+  color: white; 
   padding: 10px 10px;
   padding-left: 20px;
   font-size: 16px;
   border-radius: 40px 0;
   cursor: pointer;
-  text-align: left;
+  text-align: left; /* Align text to the left */
   transition: transform 0.3s ease;
 }
 
 /* HOVER + ACTIVE STATE with GRADIENT */
 .filter-btn:hover,
 .filter-btn.active {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Slightly enlarge on hover */
   background: linear-gradient(135deg, #ff3c3c, #3c8eff);
-  box-shadow: 0 0 10px rgba(222, 188, 188, 0.4), 0 0 20px rgba(60, 142, 255, 0.3);
+  box-shadow: 0 0 10px rgba(222, 188, 188, 0.4), 0 0 20px rgba(60, 142, 255, 0.3); /* Gradient shadow */
 }
 
 
 /* GALLERY AREA */
 .gallery-container {
-  display: flex;               /* Use flex to lay items in a row */
-  flex-wrap: nowrap;           /* Prevent wrapping to a new line */
-  overflow-x: auto;            /* Enable horizontal scroll */
+  display: flex;         /* Use flex to lay items in a row */
+  flex-wrap: nowrap;    /* Prevent wrapping to a new line */
+  overflow-x: auto;   /* Enable horizontal scroll */
   overflow-y: hidden; 
-  margin-left: 5px;         /* Hide vertical overflow */
-  scroll-behavior: smooth;     /* Smooth scrolling */
+  margin-left: 5px;  /* Hide vertical overflow */
+  scroll-behavior: smooth;  /* Smooth scrolling */
   padding: 40px 30px;
   gap: 25px;
-  height: auto;                /* Optional: allow content to define height */
+  height: auto;   /* allow content to define height */
 }
 
 
@@ -171,14 +173,14 @@ main {
   flex: 0 0 auto; /* Prevent stretching; stay fixed width */
   width: 290px;
   height: 460px;
-  border-radius: 12px;
+  border-radius: 12px; /* Rounded corners */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s ease;
-  overflow: hidden;
+  overflow: hidden; /* Hide overflow */
   background-color: #111;
 }
 
-
+/* Image inside the gallery item */
 .gallery-item img {
   width: 100%;
   height: 460px; /* Fixed height */
@@ -188,15 +190,17 @@ main {
 }
 
 .gallery-item:hover {
-  transform: scale(1.03);
+  transform: scale(1.03); /* Slightly enlarge on hover */
 }
 
 .gallery-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Slightly enlarge image on hover */
 }
 
+
+/* Scrollbar styles for the gallery container */
 .gallery-container::-webkit-scrollbar {
-  height: 8px;
+  height: 8px; 
 }
 .gallery-container::-webkit-scrollbar-thumb {
   background: #555;
@@ -208,10 +212,11 @@ main {
 
 /* FADE-IN EFFECT */
 .fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeIn 0.6s forwards;
+  opacity: 0; 
+  transform: translateY(30px); 
+  animation: fadeIn 0.6s forwards; 
 }
+
 
 @keyframes fadeIn {
   to {
@@ -296,11 +301,86 @@ footer {
   font-size: 0.9rem;
 }
 
+/* ---------- MEDIA QUERIES FOR RESPONSIVENESS ---------- */
+
+@media (max-width: 1024px) {
+  .filter-bar {
+    width: 280px;
+    padding: 30px;
+  }
+
+  .gallery-item {
+    width: 240px;
+    height: 400px;
+  }
+
+  .gallery-item img {
+    height: 400px;
+  }
+}
 
 @media (max-width: 768px) {
+  /* Keep navbar horizontal */
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    height: 70px;
+  }
+
+  /* Slightly shrink logo */
+  .logo img {
+    height: 50px;
+  }
+
+  /* Shrink nav text spacing */
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  /* Push main content further down to avoid overlap */
+  main {
+    margin-top: 80px; /* ensure content clears fixed nav */
+  }
+
+  /* Sidebar becomes full-width above gallery */
+  .filter-bar {
+    width: 100%;
+    padding: 20px;
+    margin-top: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(236, 232, 232, 0.07);
+    box-shadow: inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* Gallery tweaks for tighter spacing */
+  .gallery-container {
+    padding: 20px;
+    margin-left: 0;
+    gap: 15px;
+  }
+
+  .gallery-item {
+    width: 220px;
+    height: 340px;
+  }
+
+  .gallery-item img {
+    height: 340px;
+  }
+
+  /* Footer centers and stacks */
   .footer-container {
     flex-direction: column;
-    align-items: center;
     text-align: center;
   }
 
@@ -308,4 +388,22 @@ footer {
     justify-content: center;
   }
 }
+
+
+@media (max-width: 480px) {
+  .filter-btn {
+    font-size: 14px;
+    padding-left: 15px;
+  }
+
+  .gallery-item {
+    width: 180px;
+    height: 300px;
+  }
+
+  .gallery-item img {
+    height: 300px;
+  }
+}
+
 
