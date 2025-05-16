@@ -1,12 +1,15 @@
-const videoData = {
-  ferrari: {
-    videos: [
+// Object storing video URLs and corresponding descriptions for each car brand
+const videoData = { 
+  // Videos are in MP4 format, descriptions are in HTML format
+  // Ferrari videos and descriptions
+  ferrari: { 
+    videos: [ /* Array of Ferrari video URLs */ 
       "https://v1.pinimg.com/videos/iht/expMp4/79/5b/8f/795b8fee47741d8b2c36528f2554bdaa_720w.mp4",
       "https://v1.pinimg.com/videos/iht/720p/16/7d/71/167d719a9361a21fa7dd5f96962f2773.mp4",
       "https://v1.pinimg.com/videos/iht/expMp4/2e/e5/ee/2ee5eec64661048e7ae56efb8a19561e_t4.mp4",
       "https://v1.pinimg.com/videos/iht/expMp4/d7/92/d9/d792d9b4bc7793407d2147c4cdad1431_t4.mp4"
     ],
-    descriptions: [
+    descriptions: [ /* Array of Ferrari car descriptions (HTML format) */ 
       `A modern grand tourer honoring Ferrari’s V12 legacy with a 6.5L naturally aspirated engine delivering 819 hp.<br><br>
       Accelerates from 0–100 km/h in just 2.9 seconds, reaching speeds over 340 km/h.<br><br>
       Retro-inspired design meets cutting-edge aerodynamics in both coupe and spider variants.`,
@@ -24,15 +27,17 @@ const videoData = {
       Combining Ferrari performance with practical utility, it redefines the SUV category.`
     ]
   },
-
-  ford: {
-    videos: [
+  
+  // Ford videos and descriptions
+  // Videos are in MP4 format, descriptions are in HTML format
+  ford: { 
+    videos: [ /* Array of Ford video URLs */
       "https://v1.pinimg.com/videos/iht/expMp4/75/f7/ef/75f7eff38221af17e4a4c883571ef668_720w.mp4",
       "https://v1.pinimg.com/videos/iht/720p/95/ad/f7/95adf7abd0e363fe46c43f43cebb0866.mp4",
       "https://v1.pinimg.com/videos/iht/720p/c2/09/fa/c209fad3a6d4017fccada2a4a61e132d.mp4",
       "https://v1.pinimg.com/videos/mc/720p/1d/9f/28/1d9f28e69e2449e38538f2fa205afdb7.mp4"
     ],
-    descriptions: [
+    descriptions: [ /* Array of Ford car descriptions (HTML format) */
       `A modern American muscle icon powered by a 5.0L Ti-VCT V8 producing 480 hp.<br><br>
       It hits 0–100 km/h in 4.3 seconds with a top speed around 250 km/h.<br><br>
       Features include bold styling, tri-bar lighting, and dual exhaust in fastback or convertible form.`,
@@ -51,14 +56,16 @@ const videoData = {
     ]
   },
 
+  // Land Rover videos and descriptions
+  // Videos are in MP4 format, descriptions are in HTML format
   landrover: {
-    videos: [
+    videos: [ /* Array of Land Rover video URLs */
       "https://v1.pinimg.com/videos/iht/720p/0c/80/f4/0c80f4717cc391968336f8af20fac1e6.mp4",
       "https://v1.pinimg.com/videos/mc/720p/a5/c5/8a/a5c58ad5b9431dacef30870dff6b2e31.mp4",
       "https://v1.pinimg.com/videos/mc/720p/04/8a/91/048a91567291eade03f57e0a42ac04b4.mp4",
       "https://v1.pinimg.com/videos/mc/720p/9e/c8/6f/9ec86f27e8fe7bb2ad5a7e0d38953317.mp4"
     ],
-    descriptions: [
+    descriptions: [ /* Array of Land Rover car descriptions (HTML format) */
       `The 2025 Range Rover leads the luxury SUV class with sleek styling and high-end innovation.<br><br>
       It offers twin-turbo V8 or plug-in hybrid powertrains with adaptive suspension and AWD.<br><br>
       Inside, a lavish tech-filled cabin meets minimalist elegance in SE, Autobiography, SV, and upcoming EV trims.`,
@@ -77,14 +84,16 @@ const videoData = {
     ]
   },
 
+  // Maserati videos and descriptions
+  // Videos are in MP4 format, descriptions are in HTML format
   maserati: {
-    videos: [
+    videos: [ /* Array of Maserati video URLs */
       "https://v1.pinimg.com/videos/iht/expMp4/62/93/7f/62937ff41717c9d1211312cbd155b0cb_720w.mp4",
       "https://v1.pinimg.com/videos/iht/720p/a5/b5/28/a5b5284f0475db666666072f0ccba233.mp4",
       "https://v1.pinimg.com/videos/iht/720p/06/86/bc/0686bced51fd44c3ca7b6c803a721b8c.mp4",
       "https://v1.pinimg.com/videos/mc/720p/96/ef/08/96ef089a7f29eacbdfef6669d6616123.mp4"
     ],
-    descriptions: [
+    descriptions: [ /* Array of Maserati car descriptions (HTML format) */
       `The GranTurismo Folgore is Maserati’s first all-electric grand tourer, fusing tradition with innovation.<br><br>
       It delivers 761 hp from three motors, accelerating to 100 km/h in just 2.7 seconds.<br><br>
       Classic GranTurismo curves meet 800V architecture for rapid charging and extended range.`,
@@ -103,14 +112,16 @@ const videoData = {
     ]
   },
 
+  // Lincoln videos and descriptions
+  // Videos are in MP4 format, descriptions are in HTML format
   lincoln: {
-    videos: [
+    videos: [ /* Array of Lincoln video URLs */
       "https://v1.pinimg.com/videos/mc/720p/93/5f/ca/935fca36be2774112f41adee2340840e.mp4",
       "https://v1.pinimg.com/videos/iht/720p/be/c1/cc/bec1cc00dcd8f7a985c9b6e914ccb86d.mp4",
       "https://v1.pinimg.com/videos/iht/720p/07/e0/1c/07e01c8e3735256d9d2109087e891d41.mp4",
       "https://v1.pinimg.com/videos/iht/expMp4/42/89/db/4289db0be832a65593bce984af7395f4_720w.mp4"
     ],
-    descriptions: [
+    descriptions: [ /* Array of Lincoln car descriptions (HTML format) */
       `The 2025 Lincoln Navigator is a bold full-size SUV blending power and refinement.<br><br>
       It delivers 440 hp from a twin-turbo V6, 4WD capability, and up to 8,700 lbs of towing.<br><br>
       Inside, a 48-inch screen, BlueCruise hands-free driving, and luxurious finishes define the experience.`,
@@ -129,14 +140,16 @@ const videoData = {
     ]
   },
 
+  // Jaguar videos and descriptions
+  // Videos are in MP4 format, descriptions are in HTML format
   jaguar: {
-    videos: [
+    videos: [ /* Array of Jaguar video URLs */
       "https://v1.pinimg.com/videos/mc/720p/54/37/a2/5437a21b1c994884099df53bed9d30c7.mp4",
       "https://v1.pinimg.com/videos/mc/720p/4d/c6/18/4dc61877e2bf84a2f62619e907acb111.mp4",
       "https://v1.pinimg.com/videos/mc/720p/d1/d2/2f/d1d22fc362a6a91c9dffea2c3c97dfda.mp4",
       "https://v1.pinimg.com/videos/mc/720p/e9/42/f2/e942f29c1a961f507946541e753f8d85.mp4"
     ],
-    descriptions: [
+    descriptions: [ /* Array of Jaguar car descriptions (HTML format) */
       `The Jaguar F-PACE is a luxury performance SUV that balances power with practicality.<br><br>
       Its 395 hp mild-hybrid inline-6 enables a 0–100 km/h time of 5.1 seconds and AWD precision.<br><br>
       Distinctive styling, premium materials, and smart tech define its refined driving experience.`,
@@ -156,8 +169,9 @@ const videoData = {
   }
 };
 
-const currentIndex = {
-  ferrari: 0,
+// Object to keep track of the current video index for each brand
+const currentIndex = { 
+  ferrari: 0, 
   ford: 0,
   landrover: 0,
   maserati: 0,
@@ -165,26 +179,32 @@ const currentIndex = {
   jaguar: 0
 };
 
+// Function to update the video and description based on the current index
 function updateContent(brand) {
-  const index = currentIndex[brand];
+  const index = currentIndex[brand]; 
   const video = document.getElementById(`${brand}-video`);
   const desc = document.getElementById(`${brand}-description`);
-
+ 
+  // Update the video source and description
+  // The video source is set to the current index of the brand
   video.src = videoData[brand].videos[index];
   desc.innerHTML = videoData[brand].descriptions[index];
   video.play();
 }
 
+// Function to handle the next video button click
 function nextVideo(brand) {
   currentIndex[brand] = (currentIndex[brand] + 1) % videoData[brand].videos.length;
   updateContent(brand);
 }
 
+// Function to handle the previous video button click
 function prevVideo(brand) {
   currentIndex[brand] = (currentIndex[brand] - 1 + videoData[brand].videos.length) % videoData[brand].videos.length;
   updateContent(brand);
 }
 
+// Event listeners for the next and previous buttons
 const brandSections = document.querySelectorAll('.brand-box');
 
 const observerOptions = {
@@ -192,10 +212,12 @@ const observerOptions = {
   threshold: 0.6, // 60% visible to be considered "in view"
 };
 
+// IntersectionObserver to handle video play/pause based on visibility
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const video = entry.target.querySelector('video');
 
+    // Play the video if the section is in view, otherwise pause it
     if (entry.isIntersecting) {
       video.play();
     } else {
@@ -204,4 +226,5 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
+// Observe each brand section for visibility changes
 brandSections.forEach(section => observer.observe(section));
